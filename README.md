@@ -109,7 +109,7 @@ Usage: ./preproc_script_1.sh [OPTIONS]
 [Example]
     ./preproc_script_1.sh --model rat\
     > --fldir data_rat1,data_rat2\
-    > --stc 1 --dc 1 --bet 0.55\
+    > --tr 2 --stc 1 --dc 1 --bet 0.55\
     > --matlab_dir matlab
 
 Options:
@@ -124,6 +124,7 @@ Options:
                 [Values]
                 Any string value or list of comma-delimited string values
                 (Default: data_<model>1)
+ --tr			TR in seconds (Default: 1)
 
  --stc          Specifies if slice time correction (STC) is needed (long TR vs. short TR)
                 [Values]
@@ -371,3 +372,4 @@ Thompson, G. J., Pan, W. J., Magnuson, M. E., Jaeger, D., & Keilholz, S. D. (201
 Chen, J. (2022). Tools for NIfTI and ANALYZE image. MATLAB Central File Exchange. https://www.mathworks.com/matlabcentral/fileexchange/8797-tools-for-nifti-and-analyze-image
 
 Xu, N., LaGrow, T. J., Anumba, N., Lee, A., Zhang, X., Yousefi, B., Bassil, Y., Clavijo, G. P., Khalilzad Sharghi, V., Maltbie, E., Meyer-Baese, L., Nezafati, M., Pan, W.-J., & Keilholz, S. (2022). Functional Connectivity of the Brain Across Rodents and Humans. Frontiers in Neuroscience, 0, 272. https://doi.org/10.3389/FNINS.2022.816331
+
