@@ -81,10 +81,12 @@ All these files need to be in the same orientation and similar resolution as you
 2. **Reorient and rescale the voxel size of the template:**
    SPM does a good job for manual reorientation/rescaling. See the first 2 minutes of the [SPM reorientation tutorial](https://www.youtube.com/watch?v=J_aXCBKRc1k&t=371s).
 3. **Re-assign valid orientation information:**
-   After SPM reorientation, check which affine matrix contains the correct orientation information:
-   ```bash
-   fslhd T2tmp.nii | grep -E "qform|sform|qto_|sto_"
-   ```
+   After SPM reorientation, check the `qform`/`sform` information against a reference image with the correct orientation labels, then re-assign the valid form code if needed. For example:
+	```bash
+	fslhd T2tmp.nii | grep -E "qform|sform|qto_|sto_"
+	fslhd EPI0.nii.gz | grep -E "qform|sform|qto_|sto_"
+	fslorient -setsformcode 1 T2tmp.nii
+	```
 You might also need to crop the template files to better fit the field of view (FOV) of your EPI scans. The matlab function nii_clip.m in the NIfTI toolbox does a good job on this. Two templates are provided, the SIGMA_Wistar rat brain template (Barrière et al., 2019), and a modified Allen Brain Institute Mouse template. The Allen mouse template (Lein et al., 2006) was modified to better fit the mouse data sample provided. The voxel size for the provided template is 2mm for mouse and 3mm for rat. If you have a different FOV in your scan, please create your own study-specific template.
 
 <a name="section-3-2"></a>
